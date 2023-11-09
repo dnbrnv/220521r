@@ -1,0 +1,21 @@
+###External parameters
+dirDataName <-"./data"
+
+###Creating a list of files
+files <- dir(path=dirDataName, pattern = "csv$", full.names=TRUE )
+
+###Reading in files
+v <- c()
+for (f in files) {
+  v <- c(v, read.csv(file=f)$value)
+}
+
+###Creating a final report
+hist (x = v, 
+      probability = TRUE, 
+      density = 20, angle = -45,
+      col = "magenta", 
+      main = "Sample report")
+
+grid(lty= "solid")
+lines (density(v, adjust = 1.5), col = "blue", lwd=2)

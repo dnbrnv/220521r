@@ -1,0 +1,19 @@
+###External parameters
+dirDataName <-"./data"
+numberOfFiles <- 100
+numberOfNumbers <- 10
+
+###Creating data folder
+if(!dir.exists(path=dirDataName)) {
+  dir.create(path=dirDataName)
+}
+
+###Changing the working directory
+wd <- setwd(dir=dirDataName)
+
+###Creating report
+for(j in 1:numberOfFiles) {
+  fileName <-paste0("data_", as.character(j), ".csv")
+  d <-data.frame(value=rnorm(numberOfNumbers))
+  write.csv(d< fileName)
+}
